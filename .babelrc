@@ -6,7 +6,6 @@
 		}]
 	],
 	"plugins": [
-		["transform-react-jsx", {"pragma":"h"}],
 		"async-to-promises"
 	]
 }
