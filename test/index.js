@@ -5,5 +5,12 @@ assert.equal(typeof series, 'function');
 
 assert.equal(typeof parallel, 'function');
 
-console.log('✅ success');
-process.exit(0);
+parallel([
+	() => Promise.resolve('a'),
+	() => Promise.resolve('b')
+]).then( out => {
+	assert.deepEqual(out, ['a', 'b']);
+
+	console.log('✅ success');
+	process.exit(0);
+});
