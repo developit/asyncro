@@ -12,7 +12,7 @@
     "transpile": "rollup -c rollup.config.js -m ${npm_package_main}.map -f umd -n $npm_package_name $npm_package_jsnext_main -o $npm_package_main",
     "minify": "uglifyjs $npm_package_main -cm -o $npm_package_minified_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_minified_main}.map",
     "size": "size=$(gzip-size $npm_package_minified_main) && echo \"gzip size: $size / $(pretty-bytes $size)\"",
-    "docs": "documentation readme src/index.js --section API -q",
+    "docs": "documentation readme --section API -q && documentation build -f html -o docs -q",
     "test": "ava --verbose",
     "lint": "eslint {src,test}",
     "release": "npm run -s build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
@@ -22,6 +22,10 @@
     "async",
     "await",
     "arrays"
+  ],
+  "files": [
+    "src",
+    "dist"
   ],
   "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
