@@ -12,22 +12,45 @@ export async function reduce(arr, fn, val, pure) {
 	return val;
 }
 
-/** Async version of Array.prototype.map()
- *	await map(['foo', 'baz'], async v => await fetch(v) )
+
+/** Invoke an async transform function on each item in the given Array **in parallel**,
+ *	returning the resulting Array of mapped/transformed items.
+ *
+ *	> This is an asynchronous, parallelized version of `Array.prototype.map()`.
+ *
+ *	@param {Array} array			The Array to map over
+ *	@param {Function} mapper		Async function. Gets passed `(value, index, array)`, returns the new value.
+ *	@returns {Array} mappedValues	The resulting mapped/transformed values.
+ *
+ *	@example
+ *	await map(
+ *		['foo', 'baz'],
+ *		async v => await fetch(v)
+ *	)
  */
-export async function map(arr, fn) {
-	return await reduce(arr, async (acc, value, index, arr) => {
-		acc.push(await fn(value, index, arr));
-	}, [], false);
+export function map(arr, fn) {
+	return Promise.all(arr.map(fn));
 }
 
-/** Async version of Array.prototype.filter()
- *	await filter(['foo', 'baz'], async v => (await fetch(v)).ok )
+
+/** Invoke an async filter function on each item in the given Array **in parallel**,
+ *	returning an Array of values for which the filter function returned a truthy value.
+ *
+ *	> This is an asynchronous, parallelized version of `Array.prototype.filter()`.
+ *
+ *	@param {Array} array			The Array to filter
+ *	@param {Function} filterer		Async function. Gets passed `(value, index, array)`, returns true to keep the value in the resulting filtered Array.
+ *	@returns {Array} filteredValues	The resulting filtered values.
+ *
+ *	@example
+ *	await filter(
+ *		['foo', 'baz'],
+ *		async v => (await fetch(v)).ok
+ *	)
  */
 export async function filter(arr, fn) {
-	return await reduce(arr, async (acc, value, index, arr) => {
-		if (await fn(value, index, arr)) acc.push(value);
-	}, [], false);
+	let mapped = await map(arr, fn);
+	return arr.filter( (v, i) => mapped[i] );
 }
 
 function identity(x) {
