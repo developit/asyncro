@@ -8,21 +8,25 @@ import { resolve, pushReducer } from './util';
  *	> This is an asynchronous version of `Array.prototype.reduce()`
  *
  *	@param {Array} array			The Array to reduce
- *	@param {Function} reducer		Async function that gets passed `(accumulator, value, index, array)`.
- *	@param {Any} [initialValue]		An initial accumulator value
- *	@returns {Any} accumulator		The final value of the accumulator
+ *	@param {Function} reducer		Async function, gets passed `(accumulator, value, index, array)` and returns a new value for `accumulator`
+ *	@param {Any} [accumulator]		Optional initial accumulator value
+ *	@returns final `accumulator` value
  *
  *	@example
- *	await reduce(['/foo', '/bar', '/baz'], async (acc, v) => {
- *		acc[v] = await (await fetch(v)).json();
- *		return acc;
- *	}, {});
+ *	await reduce(
+ *		['/foo', '/bar', '/baz'],
+ *		async (accumulator, value) => {
+ *			accumulator[v] = await fetch(value);
+ *			return accumulator;
+ *		},
+ *		{}
+ *	);
  */
-export async function reduce(arr, fn, val) {
-	for (let i=0; i<arr.length; i++) {
-		val = await fn(val, arr[i], i, arr);
+export async function reduce(array, reducer, accumulator) {
+	for (let i=0; i<array.length; i++) {
+		accumulator = await reducer(accumulator, array[i], i, array);
 	}
-	return val;
+	return accumulator;
 }
 
 
@@ -32,8 +36,8 @@ export async function reduce(arr, fn, val) {
  *	> This is an asynchronous, parallelized version of `Array.prototype.map()`.
  *
  *	@param {Array} array			The Array to map over
- *	@param {Function} mapper		Async function. Gets passed `(value, index, array)`, returns the new value.
- *	@returns {Array} mappedValues	The resulting mapped/transformed values.
+ *	@param {Function} mapper		Async function, gets passed `(value, index, array)`, returns the new value.
+ *	@returns {Array} resulting mapped/transformed values.
  *
  *	@example
  *	await map(
@@ -41,8 +45,8 @@ export async function reduce(arr, fn, val) {
  *		async v => await fetch(v)
  *	)
  */
-export function map(arr, fn) {
-	return Promise.all(arr.map(fn));
+export function map(array, mapper) {
+	return Promise.all(array.map(mapper));
 }
 
 
@@ -53,7 +57,7 @@ export function map(arr, fn) {
  *
  *	@param {Array} array			The Array to filter
  *	@param {Function} filterer		Async function. Gets passed `(value, index, array)`, returns true to keep the value in the resulting filtered Array.
- *	@returns {Array} filteredValues	The resulting filtered values.
+ *	@returns {Array} resulting filtered values
  *
  *	@example
  *	await filter(
@@ -61,15 +65,15 @@ export function map(arr, fn) {
  *		async v => (await fetch(v)).ok
  *	)
  */
-export async function filter(arr, fn) {
-	let mapped = await map(arr, fn);
-	return arr.filter( (v, i) => mapped[i] );
+export async function filter(array, filterer) {
+	let mapped = await map(array, filterer);
+	return array.filter( (v, i) => mapped[i] );
 }
 
 
 /** Invoke all async functions in an Array or Object **in parallel**, returning the result.
  *	@param {Array<Function>|Object<Function>} list		Array/Object with values that are async functions to invoke.
- *	@returns {Array|Object} mappedList					Same structure as `list` input, but with values now resolved.
+ *	@returns {Array|Object} same structure as `list` input, but with values now resolved.
  *
  *	@example
  *	await parallel([
@@ -84,7 +88,7 @@ export async function parallel(list) {
 
 /** Invoke all async functions in an Array or Object **sequentially**, returning the result.
  *	@param {Array<Function>|Object<Function>} list		Array/Object with values that are async functions to invoke.
- *	@returns {Array|Object} mappedList					Same structure as `list` input, but with values now resolved.
+ *	@returns {Array|Object} same structure as `list` input, but with values now resolved.
  *
  *	@example
  *	await series([
