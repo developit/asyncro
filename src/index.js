@@ -1,13 +1,26 @@
-/** Async version of Array.prototype.reduce()
+import { resolve, pushReducer } from './util';
+
+
+/** Invoke an async reducer function on each item in the given Array,
+ *	where the reducer transforms an accumulator value based on each item iterated over.
+ *	**Note:** because `reduce()` is order-sensitive, iteration is sequential.
+ *
+ *	> This is an asynchronous version of `Array.prototype.reduce()`
+ *
+ *	@param {Array} array			The Array to reduce
+ *	@param {Function} reducer		Async function that gets passed `(accumulator, value, index, array)`.
+ *	@param {Any} [initialValue]		An initial accumulator value
+ *	@returns {Any} accumulator		The final value of the accumulator
+ *
+ *	@example
  *	await reduce(['/foo', '/bar', '/baz'], async (acc, v) => {
  *		acc[v] = await (await fetch(v)).json();
  *		return acc;
  *	}, {});
  */
-export async function reduce(arr, fn, val, pure) {
+export async function reduce(arr, fn, val) {
 	for (let i=0; i<arr.length; i++) {
-		let v = await fn(val, arr[i], i, arr);
-		if (pure!==false) val = v;
+		val = await fn(val, arr[i], i, arr);
 	}
 	return val;
 }
@@ -53,32 +66,32 @@ export async function filter(arr, fn) {
 	return arr.filter( (v, i) => mapped[i] );
 }
 
-function identity(x) {
-	return x;
-}
 
-function resolve(list) {
-	let out = Array.isArray(list) ? [] : {};
-	for (let i in list) if (list.hasOwnProperty(i)) out[i] = list[i]();
-	return out;
-}
-
-/** Provided by standard lib, replaces async.parallel()
+/** Invoke all async functions in an Array or Object **in parallel**, returning the result.
+ *	@param {Array<Function>|Object<Function>} list		Array/Object with values that are async functions to invoke.
+ *	@returns {Array|Object} mappedList					Same structure as `list` input, but with values now resolved.
+ *
+ *	@example
  *	await parallel([
- *		() => fetch('foo'),
- *		() => fetch('baz')
+ *		async () => await fetch('foo'),
+ *		async () => await fetch('baz')
  *	])
  */
 export async function parallel(list) {
 	return await Promise.all(resolve(list));
 }
 
-/** Replaces async.series()
+
+/** Invoke all async functions in an Array or Object **sequentially**, returning the result.
+ *	@param {Array<Function>|Object<Function>} list		Array/Object with values that are async functions to invoke.
+ *	@returns {Array|Object} mappedList					Same structure as `list` input, but with values now resolved.
+ *
+ *	@example
  *	await series([
- *		() => fetch('foo'),
- *		() => fetch('baz')
+ *		async () => await fetch('foo'),
+ *		async () => await fetch('baz')
  *	])
  */
 export async function series(list) {
-	return await map(resolve(list), identity);
+	return await reduce(resolve(list), pushReducer, []);
 }
