@@ -1,6 +1,6 @@
 {
   "name": "asyncro",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Asynchronous Array Utilities (for await)",
   "main": "dist/asyncro.js",
   "jsnext:main": "src/index.js",
