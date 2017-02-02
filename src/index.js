@@ -97,5 +97,5 @@ export async function parallel(list) {
  *	])
  */
 export async function series(list) {
-	return reduce(list, async (acc, v) => acc.concat(await v()), []);
+  return reduce(list, pushReducer, []);
 }

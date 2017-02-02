@@ -12,6 +12,6 @@ export function resolve(list) {
  *	@private
  */
 export async function pushReducer(acc, v) {
-	acc.push(await v);
+  acc.push(await v());
 	return acc;
 }
