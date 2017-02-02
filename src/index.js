@@ -97,5 +97,5 @@ export async function parallel(list) {
  *	])
  */
 export async function series(list) {
-	return list.reduce((acc, cur) => acc.then(cur), Promise.resolve());
+	return reduce(list, async (acc, v) => acc.concat(await v()), []);
 }
