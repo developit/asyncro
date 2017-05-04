@@ -9,7 +9,7 @@ import { resolve, pushReducer } from './util';
  *
  *	@param {Array} array			The Array to reduce
  *	@param {Function} reducer		Async function, gets passed `(accumulator, value, index, array)` and returns a new value for `accumulator`
- *	@param {Any} [accumulator]		Optional initial accumulator value
+ *	@param {*} [accumulator]		Optional initial accumulator value
  *	@returns final `accumulator` value
  *
  *	@example
