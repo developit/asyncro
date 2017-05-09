@@ -1,5 +1,7 @@
 # `asyncro` [![NPM](https://img.shields.io/npm/v/asyncro.svg?style=flat)](https://www.npmjs.org/package/asyncro) [![travis-ci](https://travis-ci.org/developit/asyncro.svg?branch=master)](https://travis-ci.org/developit/asyncro)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/developit/asyncro.svg)](https://greenkeeper.io/)
+
 The same `map()`, `reduce()` & `filter()` you know and love, but with async iterator functions!
 
 Do `fetch()` networking in loops, resolve Promises, anything async goes. Performance-friendly _by default_.
