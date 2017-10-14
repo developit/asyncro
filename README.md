@@ -6,16 +6,20 @@ Do `fetch()` networking in loops, resolve Promises, anything async goes. Perform
 
 **Here's what it looks like:**
 
-<img src="http://i.imgur.com/GcykVyN.png" width="606" alt="Example">
+<img src="https://i.imgur.com/GcykVyN.png" width="404" alt="Asyncro Example">
 
 ---
 
 ## What's in the Box
 
-<img src="http://i.imgur.com/yiiq6Gx.png" width="275" alt="Example 2">
+<img src="https://i.imgur.com/yiiq6Gx.png" width="275" alt="Asyncro Example 2">
 
 
 ---
+
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/WbARjbDRQz5y3N6VBEMPU4LW/developit/asyncro'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/WbARjbDRQz5y3N6VBEMPU4LW/developit/asyncro.svg' />
+</a>
 
 
 ## Installation
