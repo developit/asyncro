@@ -17,11 +17,6 @@ Do `fetch()` networking in loops, resolve Promises, anything async goes. Perform
 
 ---
 
-<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/WbARjbDRQz5y3N6VBEMPU4LW/developit/asyncro'>
-  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/WbARjbDRQz5y3N6VBEMPU4LW/developit/asyncro.svg' />
-</a>
-
-
 ## Installation
 
 ```sh
