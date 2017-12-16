@@ -1,6 +1,6 @@
 import test from 'ava';
 import { spy } from 'sinon';
-import { series, parallel, map } from '..';
+import { series, parallel, map, filter, find, every, some } from '..';
 
 const get = v => Promise.resolve(v);
 
@@ -48,3 +48,22 @@ test('map', async t => {
 
 	t.true(elapsed < 100, 'Should invoke in parallel');
 });
+
+test('baseMap', async t => {
+	t.is(typeof filter, 'function');
+	t.is(typeof find, 'function');
+	t.is(typeof every, 'function');
+	t.is(typeof some, 'function');
+
+	let fn = spy( async value => (await sleep(50), await get(value) > 1) );
+
+	let filterOut = await filter([1, 2, 3], fn);
+	let findOut = await find([1,2,3], fn);
+	let everyOut = await every([1, 2, 3], fn);
+	let someOut = await some([1,2,3], fn);
+
+	t.deepEqual(filterOut, [2, 3]);
+	t.deepEqual(findOut, 2);
+	t.false(everyOut);
+	t.true(someOut);
+})
