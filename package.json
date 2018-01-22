@@ -1,6 +1,6 @@
 {
   "name": "asyncro",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Asynchronous Array Utilities (for await)",
   "main": "dist/asyncro.js",
   "module": "dist/asyncro.m.js",
