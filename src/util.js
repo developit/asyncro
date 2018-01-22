@@ -7,7 +7,6 @@ export function resolve(list) {
 	return out;
 }
 
-
 /** reduce() callback that pushes values into an Array accumulator
  *	@private
  */

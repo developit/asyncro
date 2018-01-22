@@ -65,10 +65,61 @@ export function map(array, mapper) {
  *		async v => (await fetch(v)).ok
  *	)
  */
-export async function filter(array, filterer) {
-	let mapped = await map(array, filterer);
-	return array.filter( (v, i) => mapped[i] );
-}
+export const filter = baseMap('filter')
+
+
+/** Invoke an async function on each item in the given Array **in parallel**,
+ *  returning the first element predicate returns truthy for.
+ *
+ *	> This is an asynchronous, parallelized version of `Array.prototype.find()`.
+ *
+ *	@param {Array} array			The Array to find
+ *	@param {Function} predicate		Async function. Gets passed `(value, index, array)`, returns true to be the find result.
+ *	@returns {*} resulting find value
+ *
+ *	@example
+ *	await find(
+ *		['foo', 'baz', 'root'],
+ *		async v => (await fetch(v)).name === 'baz'
+ *	)
+ */
+export const find = baseMap('find')
+
+
+
+/** Checks if predicate returns truthy for **all** elements of collection **in parallel**.
+ *
+ *	> This is an asynchronous, parallelized version of `Array.prototype.every()`.
+ *
+*	@param {Array} array			The Array to iterate over.
+ *	@param {Function} predicate		Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
+ *	@returns {Boolean} Returns true if **all** element passes the predicate check, else false.
+ *
+ *	@example
+ *	await every(
+ *		[2, 3],
+ *		async v => (await fetch(v)).ok
+ *	)
+ */
+export const every = baseMap('every')
+
+
+
+/** Checks if predicate returns truthy for **any** element of collection **in parallel**.
+ *
+ *	> This is an asynchronous, parallelized version of `Array.prototype.some()`.
+ *
+ *	@param {Array} array			The Array to iterate over.
+ *	@param {Function} filterer		Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
+ *	@returns {Boolean} Returns true if **any** element passes the predicate check, else false.
+ *
+ *	@example
+ *	await some(
+ *		['foo', 'baz'],
+ *		async v => (await fetch(v)).ok
+ *	)
+ */
+export const some = baseMap('some')
 
 
 /** Invoke all async functions in an Array or Object **in parallel**, returning the result.
@@ -98,4 +149,18 @@ export async function parallel(list) {
  */
 export async function series(list) {
   return reduce(list, pushReducer, []);
+}
+
+
+/**
+ * Base `map` to invoke `Array` operation **in parallel**.
+ * @private
+ * @param {String} operation		The operation name of `Array` to be invoked.
+ * @return {Array} resulting mapped/transformed values.
+ */
+export function baseMap(operation) {
+	return async (array, predicate) => {
+		const mapped = await map(array, predicate)
+		return array[operation]( (v, i) => mapped[i] );
+	}
 }

@@ -55,6 +55,36 @@
               
                 
                 <li><a
+                  href='#find'
+                  class="">
+                  find
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#every'
+                  class="">
+                  every
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#some'
+                  class="">
+                  some
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
                   href='#parallel'
                   class="">
                   parallel
@@ -87,9 +117,11 @@
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='reduce'>
       reduce
     </h3>
+    
     
   </div>
   
@@ -102,10 +134,11 @@ where the reducer transforms an accumulator value based on each item iterated ov
 </blockquote>
 
 
-  <div class='pre p1 fill-light mt0'>reduce(array: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, reducer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>, accumulator: [Any]): any</div>
-
+  <div class='pre p1 fill-light mt0'>reduce(array: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, reducer: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>, accumulator: any?): any</div>
+  
   
 
+  
   
   
   
@@ -118,7 +151,8 @@ where the reducer transforms an accumulator value based on each item iterated ov
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> The Array to reduce
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to reduce
 
           </div>
           
@@ -126,7 +160,8 @@ where the reducer transforms an accumulator value based on each item iterated ov
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>reducer</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> Async function, gets passed 
+            <span class='code bold'>reducer</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function, gets passed 
 <code>(accumulator, value, index, array)</code>
  and returns a new value for 
 <code>accumulator</code>
@@ -137,7 +172,8 @@ where the reducer transforms an accumulator value based on each item iterated ov
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>accumulator</span> <code class='quiet'>([Any])</code> Optional initial accumulator value
+            <span class='code bold'>accumulator</span> <code class='quiet'>(any?)</code>
+	    Optional initial accumulator value
 
           </div>
           
@@ -191,9 +227,11 @@ where the reducer transforms an accumulator value based on each item iterated ov
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='map'>
       map
     </h3>
+    
     
   </div>
   
@@ -205,10 +243,11 @@ returning the resulting Array of mapped/transformed items.</p>
 </blockquote>
 
 
-  <div class='pre p1 fill-light mt0'>map(array: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, mapper: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
-
+  <div class='pre p1 fill-light mt0'>map(array: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, mapper: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+  
   
 
+  
   
   
   
@@ -221,7 +260,8 @@ returning the resulting Array of mapped/transformed items.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> The Array to map over
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to map over
 
           </div>
           
@@ -229,7 +269,8 @@ returning the resulting Array of mapped/transformed items.</p>
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>mapper</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> Async function, gets passed 
+            <span class='code bold'>mapper</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function, gets passed 
 <code>(value, index, array)</code>
 , returns the new value.
 
@@ -245,7 +286,7 @@ returning the resulting Array of mapped/transformed items.</p>
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
         resulting mapped/transformed values.
 
       
@@ -279,9 +320,11 @@ returning the resulting Array of mapped/transformed items.</p>
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='filter'>
       filter
     </h3>
+    
     
   </div>
   
@@ -293,10 +336,11 @@ returning an Array of values for which the filter function returned a truthy val
 </blockquote>
 
 
-  <div class='pre p1 fill-light mt0'>filter(array: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, filterer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
-
+  <div class='pre p1 fill-light mt0'>filter</div>
+  
   
 
+  
   
   
   
@@ -309,7 +353,8 @@ returning an Array of values for which the filter function returned a truthy val
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> The Array to filter
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to filter
 
           </div>
           
@@ -317,7 +362,8 @@ returning an Array of values for which the filter function returned a truthy val
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>filterer</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> Async function. Gets passed 
+            <span class='code bold'>filterer</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function. Gets passed 
 <code>(value, index, array)</code>
 , returns true to keep the value in the resulting filtered Array.
 
@@ -333,7 +379,7 @@ returning an Array of values for which the filter function returned a truthy val
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
         resulting filtered values
 
       
@@ -367,20 +413,27 @@ returning an Array of values for which the filter function returned a truthy val
 
   
   <div class='clearfix'>
-    <h3 class='fl m0' id='parallel'>
-      parallel
+    
+    <h3 class='fl m0' id='find'>
+      find
     </h3>
+    
     
   </div>
   
 
-  <p>Invoke all async functions in an Array or Object <strong>in parallel</strong>, returning the result.</p>
+  <p>Invoke an async function on each item in the given Array <strong>in parallel</strong>,
+returning the first element predicate returns truthy for.</p>
+<blockquote>
+<p>This is an asynchronous, parallelized version of <code>Array.prototype.find()</code>.</p>
+</blockquote>
 
 
-  <div class='pre p1 fill-light mt0'>parallel(list: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-
+  <div class='pre p1 fill-light mt0'>find</div>
+  
   
 
+  
   
   
   
@@ -393,7 +446,19 @@ returning an Array of values for which the filter function returned a truthy val
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>list</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code> Array/Object with values that are async functions to invoke.
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to find
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function. Gets passed 
+<code>(value, index, array)</code>
+, returns true to be the find result.
 
           </div>
           
@@ -407,7 +472,273 @@ returning an Array of values for which the filter function returned a truthy val
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
+      <code>any</code>:
+        resulting find value
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">await</span> find(
+	[<span class="hljs-string">'foo'</span>, <span class="hljs-string">'baz'</span>, <span class="hljs-string">'root'</span>],
+	<span class="hljs-keyword">async</span> v =&gt; (<span class="hljs-keyword">await</span> fetch(v)).name === <span class="hljs-string">'baz'</span>
+)</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='every'>
+      every
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Checks if predicate returns truthy for <strong>all</strong> elements of collection <strong>in parallel</strong>.</p>
+<blockquote>
+<p>This is an asynchronous, parallelized version of <code>Array.prototype.every()</code>.</p>
+</blockquote>
+
+
+  <div class='pre p1 fill-light mt0'>every</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to iterate over.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>predicate</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function. Gets passed 
+<code>(value, index, array)</code>
+, The function invoked per iteration.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        Returns true if 
+<strong>all</strong>
+ element passes the predicate check, else false.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">await</span> every(
+	[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>],
+	<span class="hljs-keyword">async</span> v =&gt; (<span class="hljs-keyword">await</span> fetch(v)).ok
+)</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='some'>
+      some
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Checks if predicate returns truthy for <strong>any</strong> element of collection <strong>in parallel</strong>.</p>
+<blockquote>
+<p>This is an asynchronous, parallelized version of <code>Array.prototype.some()</code>.</p>
+</blockquote>
+
+
+  <div class='pre p1 fill-light mt0'>some</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code>
+	    The Array to iterate over.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>filterer</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code>
+	    Async function. Gets passed 
+<code>(value, index, array)</code>
+, The function invoked per iteration.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean">Boolean</a></code>:
+        Returns true if 
+<strong>any</strong>
+ element passes the predicate check, else false.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">await</span> some(
+	[<span class="hljs-string">'foo'</span>, <span class="hljs-string">'baz'</span>],
+	<span class="hljs-keyword">async</span> v =&gt; (<span class="hljs-keyword">await</span> fetch(v)).ok
+)</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='parallel'>
+      parallel
+    </h3>
+    
+    
+  </div>
+  
+
+  <p>Invoke all async functions in an Array or Object <strong>in parallel</strong>, returning the result.</p>
+
+
+  <div class='pre p1 fill-light mt0'>parallel(list: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>list</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
+	    Array/Object with values that are async functions to invoke.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
         same structure as 
 <code>list</code>
  input, but with values now resolved.
@@ -443,9 +774,11 @@ returning an Array of values for which the filter function returned a truthy val
 
   
   <div class='clearfix'>
+    
     <h3 class='fl m0' id='series'>
       series
     </h3>
+    
     
   </div>
   
@@ -453,10 +786,11 @@ returning an Array of values for which the filter function returned a truthy val
   <p>Invoke all async functions in an Array or Object <strong>sequentially</strong>, returning the result.</p>
 
 
-  <div class='pre p1 fill-light mt0'>series(list: (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)): (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
-
+  <div class='pre p1 fill-light mt0'>series(list: (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>)): (<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</div>
+  
   
 
+  
   
   
   
@@ -469,7 +803,8 @@ returning an Array of values for which the filter function returned a truthy val
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>list</span> <code class='quiet'>((<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code> Array/Object with values that are async functions to invoke.
+            <span class='code bold'>list</span> <code class='quiet'>((<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function">Function</a>>))</code>
+	    Array/Object with values that are async functions to invoke.
 
           </div>
           
@@ -483,7 +818,7 @@ returning an Array of values for which the filter function returned a truthy val
   
     
       <div class='py1 quiet mt1 prose-big'>Returns</div>
-      <code>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
+      <code>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> | <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>:
         same structure as 
 <code>list</code>
  input, but with values now resolved.
