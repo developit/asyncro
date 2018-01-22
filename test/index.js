@@ -1,6 +1,6 @@
 import test from 'ava';
 import { spy } from 'sinon';
-import { series, parallel, map, filter, find, every, some } from '..';
+import { series, parallel, map, filter, find, every, some } from '../dist/asyncro.js';
 
 const get = v => Promise.resolve(v);
 

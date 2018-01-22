@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>asyncro 2.0.1 | Documentation</title>
+  <title>  | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
@@ -13,8 +13,8 @@
     <div class='clearfix md-mxn2'>
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
-          <h3 class='mb0 no-anchor'>asyncro</h3>
-          <div class='mb1'><code>2.0.1</code></div>
+          <h3 class='mb0 no-anchor'></h3>
+          <div class='mb1'><code></code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -28,6 +28,16 @@
                   href='#reduce'
                   class="">
                   reduce
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#map'
+                  class="">
+                  map
                   
                 </a>
                 
@@ -194,6 +204,94 @@ where the reducer transforms an accumulator value based on each item iterated ov
 	},
 	{}
 );</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    <h3 class='fl m0' id='map'>
+      map
+    </h3>
+    
+  </div>
+  
+
+  <p>Invoke an async transform function on each item in the given Array <strong>in parallel</strong>,
+returning the resulting Array of mapped/transformed items.</p>
+<blockquote>
+<p>This is an asynchronous, parallelized version of <code>Array.prototype.map()</code>.</p>
+</blockquote>
+
+
+  <div class='pre p1 fill-light mt0'>map(array: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>, mapper: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>): <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></div>
+
+  
+
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>array</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>)</code> The Array to map over
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>mapper</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">Function</a>)</code> Async function, gets passed 
+<code>(value, index, array)</code>
+, returns the new value.
+
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a></code>:
+        resulting mapped/transformed values.
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">await</span> map(
+	[<span class="hljs-string">'foo'</span>, <span class="hljs-string">'baz'</span>],
+	<span class="hljs-keyword">async</span> v =&gt; <span class="hljs-keyword">await</span> fetch(v)
+)</pre>
     
   
 

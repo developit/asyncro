@@ -68,6 +68,29 @@ await reduce(
 
 Returns **any** final `accumulator` value
 
+### map
+
+Invoke an async transform function on each item in the given Array **in parallel**,
+returning the resulting Array of mapped/transformed items.
+
+> This is an asynchronous, parallelized version of `Array.prototype.map()`.
+
+**Parameters**
+
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to map over
+-   `mapper` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function, gets passed `(value, index, array)`, returns the new value.
+
+**Examples**
+
+```javascript
+await map(
+	['foo', 'baz'],
+	async v => await fetch(v)
+)
+```
+
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** resulting mapped/transformed values.
+
 ### filter
 
 Invoke an async filter function on each item in the given Array **in parallel**,
@@ -195,3 +218,7 @@ await series([
 ```
 
 Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** same structure as `list` input, but with values now resolved.
+
+## License
+
+[MIT](https://oss.ninja/mit/developit)
