@@ -1,4 +1,4 @@
-import { resolve, pushReducer } from './util';
+import { resolve, pushReducer, map, baseMap } from './util';
 
 
 /** Invoke an async reducer function on each item in the given Array,
@@ -35,6 +35,8 @@ export async function reduce(array, reducer, accumulator) {
  *
  *	> This is an asynchronous, parallelized version of `Array.prototype.map()`.
  *
+ *	@function
+ *	@name map
  *	@param {Array} array			The Array to map over
  *	@param {Function} mapper		Async function, gets passed `(value, index, array)`, returns the new value.
  *	@returns {Array} resulting mapped/transformed values.
@@ -45,9 +47,7 @@ export async function reduce(array, reducer, accumulator) {
  *		async v => await fetch(v)
  *	)
  */
-export function map(array, mapper) {
-	return Promise.all(array.map(mapper));
-}
+export { map };
 
 
 /** Invoke an async filter function on each item in the given Array **in parallel**,
@@ -65,7 +65,7 @@ export function map(array, mapper) {
  *		async v => (await fetch(v)).ok
  *	)
  */
-export const filter = baseMap('filter')
+export const filter = baseMap('filter');
 
 
 /** Invoke an async function on each item in the given Array **in parallel**,
@@ -83,8 +83,7 @@ export const filter = baseMap('filter')
  *		async v => (await fetch(v)).name === 'baz'
  *	)
  */
-export const find = baseMap('find')
-
+export const find = baseMap('find');
 
 
 /** Checks if predicate returns truthy for **all** elements of collection **in parallel**.
@@ -101,8 +100,7 @@ export const find = baseMap('find')
  *		async v => (await fetch(v)).ok
  *	)
  */
-export const every = baseMap('every')
-
+export const every = baseMap('every');
 
 
 /** Checks if predicate returns truthy for **any** element of collection **in parallel**.
@@ -119,7 +117,7 @@ export const every = baseMap('every')
  *		async v => (await fetch(v)).ok
  *	)
  */
-export const some = baseMap('some')
+export const some = baseMap('some');
 
 
 /** Invoke all async functions in an Array or Object **in parallel**, returning the result.
@@ -148,19 +146,5 @@ export async function parallel(list) {
  *	])
  */
 export async function series(list) {
-  return reduce(list, pushReducer, []);
-}
-
-
-/**
- * Base `map` to invoke `Array` operation **in parallel**.
- * @private
- * @param {String} operation		The operation name of `Array` to be invoked.
- * @return {Array} resulting mapped/transformed values.
- */
-export function baseMap(operation) {
-	return async (array, predicate) => {
-		const mapped = await map(array, predicate)
-		return array[operation]( (v, i) => mapped[i] );
-	}
+	return reduce(list, pushReducer, []);
 }

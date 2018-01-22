@@ -17,6 +17,9 @@
     "lint": "eslint {src,test}",
     "release": "npm run -s build && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
+  "eslintConfig": {
+    "extends": "eslint-config-developit"
+  },
   "repository": "developit/asyncro",
   "keywords": [
     "async",
@@ -39,7 +42,8 @@
     "babel-plugin-async-to-promises": "^1.0.5",
     "babel-preset-es2015": "^6.14.0",
     "documentation": "^4.0.0-beta11",
-    "eslint": "^3.8.1",
+    "eslint": "^3.19.0",
+    "eslint-config-developit": "^1.1.1",
     "gzip-size-cli": "^1.0.0",
     "npm-run-all": "^3.1.1",
     "pretty-bytes-cli": "^2.0.0",

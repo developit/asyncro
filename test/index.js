@@ -66,4 +66,4 @@ test('baseMap', async t => {
 	t.deepEqual(findOut, 2);
 	t.false(everyOut);
 	t.true(someOut);
-})
+});

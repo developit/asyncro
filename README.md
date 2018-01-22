@@ -49,9 +49,9 @@ where the reducer transforms an accumulator value based on each item iterated ov
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to reduce
--   `reducer` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function, gets passed `(accumulator, value, index, array)` and returns a new value for `accumulator`
--   `accumulator` **any?** Optional initial accumulator value
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to reduce
+-   `reducer` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function, gets passed `(accumulator, value, index, array)` and returns a new value for `accumulator`
+-   `accumulator` **\[any]** Optional initial accumulator value
 
 **Examples**
 
@@ -68,29 +68,6 @@ await reduce(
 
 Returns **any** final `accumulator` value
 
-### map
-
-Invoke an async transform function on each item in the given Array **in parallel**,
-returning the resulting Array of mapped/transformed items.
-
-> This is an asynchronous, parallelized version of `Array.prototype.map()`.
-
-**Parameters**
-
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to map over
--   `mapper` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function, gets passed `(value, index, array)`, returns the new value.
-
-**Examples**
-
-```javascript
-await map(
-	['foo', 'baz'],
-	async v => await fetch(v)
-)
-```
-
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** resulting mapped/transformed values.
-
 ### filter
 
 Invoke an async filter function on each item in the given Array **in parallel**,
@@ -100,8 +77,8 @@ returning an Array of values for which the filter function returned a truthy val
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to filter
--   `filterer` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, returns true to keep the value in the resulting filtered Array.
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to filter
+-   `filterer` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, returns true to keep the value in the resulting filtered Array.
 
 **Examples**
 
@@ -112,7 +89,7 @@ await filter(
 )
 ```
 
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** resulting filtered values
+Returns **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** resulting filtered values
 
 ### find
 
@@ -123,8 +100,8 @@ Invoke an async function on each item in the given Array **in parallel**,
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to find
--   `predicate` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, returns true to be the find result.
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to find
+-   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, returns true to be the find result.
 
 **Examples**
 
@@ -145,8 +122,8 @@ Checks if predicate returns truthy for **all** elements of collection **in paral
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to iterate over.
--   `predicate` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to iterate over.
+-   `predicate` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
 
 **Examples**
 
@@ -157,7 +134,7 @@ await every(
 )
 ```
 
-Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Returns true if **all** element passes the predicate check, else false.
+Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Returns true if **all** element passes the predicate check, else false.
 
 ### some
 
@@ -167,8 +144,8 @@ Checks if predicate returns truthy for **any** element of collection **in parall
 
 **Parameters**
 
--   `array` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to iterate over.
--   `filterer` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
+-   `array` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** The Array to iterate over.
+-   `filterer` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** Async function. Gets passed `(value, index, array)`, The function invoked per iteration.
 
 **Examples**
 
@@ -179,7 +156,7 @@ await some(
 )
 ```
 
-Returns **[Boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Returns true if **any** element passes the predicate check, else false.
+Returns **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Returns true if **any** element passes the predicate check, else false.
 
 ### parallel
 
@@ -187,7 +164,7 @@ Invoke all async functions in an Array or Object **in parallel**, returning the 
 
 **Parameters**
 
--   `list` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)>)** Array/Object with values that are async functions to invoke.
+-   `list` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)> | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)>)** Array/Object with values that are async functions to invoke.
 
 **Examples**
 
@@ -198,7 +175,7 @@ await parallel([
 ])
 ```
 
-Returns **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** same structure as `list` input, but with values now resolved.
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** same structure as `list` input, but with values now resolved.
 
 ### series
 
@@ -206,7 +183,7 @@ Invoke all async functions in an Array or Object **sequentially**, returning the
 
 **Parameters**
 
--   `list` **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)> | [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)>)** Array/Object with values that are async functions to invoke.
+-   `list` **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)> | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)>)** Array/Object with values that are async functions to invoke.
 
 **Examples**
 
@@ -217,4 +194,4 @@ await series([
 ])
 ```
 
-Returns **([Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object))** same structure as `list` input, but with values now resolved.
+Returns **([Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) \| [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** same structure as `list` input, but with values now resolved.
