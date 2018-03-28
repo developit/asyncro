@@ -5,6 +5,7 @@
   "main": "dist/asyncro.js",
   "module": "dist/asyncro.m.js",
   "source": "src/index.js",
+  "typings": "./index.d.ts",
   "scripts": {
     "build": "microbundle && npm run -s docs",
     "prepublish": "npm run -s build && npm t",
@@ -24,7 +25,8 @@
   ],
   "files": [
     "src",
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "author": "Jason Miller <jason@developit.ca>",
   "license": "MIT",
